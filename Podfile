@@ -6,6 +6,6 @@ target 'FcmExample' do
   use_frameworks!
 
   # Pods for FcmExample
-  pod 'Firebase’
+  pod 'Firebase/Messaging’
 
 end

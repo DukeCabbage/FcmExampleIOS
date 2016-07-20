@@ -11,6 +11,8 @@
 		B3A5B8C91D3EE6DC00F2FA38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A5B8C71D3EE6DC00F2FA38 /* Main.storyboard */; };
 		B3A5B8CB1D3EE6DC00F2FA38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A5B8CA1D3EE6DC00F2FA38 /* Assets.xcassets */; };
 		B3A5B8CE1D3EE6DC00F2FA38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A5B8CC1D3EE6DC00F2FA38 /* LaunchScreen.storyboard */; };
+		B3A5B8DC1D3EF00600F2FA38 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A5B8DB1D3EF00600F2FA38 /* MainViewController.swift */; };
+		B3A5B8DD1D3EF9DF00F2FA38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3A5B8D81D3EEFB100F2FA38 /* GoogleService-Info.plist */; };
 		C169C3947099B1CBA893C4BE /* Pods_FcmExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B6164DD76178BBB19B823 /* Pods_FcmExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,8 @@
 		B3A5B8CA1D3EE6DC00F2FA38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A5B8CD1D3EE6DC00F2FA38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3A5B8CF1D3EE6DC00F2FA38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3A5B8D81D3EEFB100F2FA38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B3A5B8DB1D3EF00600F2FA38 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,9 @@
 		B3A5B8C01D3EE6DC00F2FA38 /* FcmExample */ = {
 			isa = PBXGroup;
 			children = (
+				B3A5B8DA1D3EEFD500F2FA38 /* View Controller */,
 				B3A5B8D71D3EEDF700F2FA38 /* res */,
-				B3A5B8C11D3EE6DC00F2FA38 /* AppDelegate.swift */,
+				B3A5B8D81D3EEFB100F2FA38 /* GoogleService-Info.plist */,
 				B3A5B8CF1D3EE6DC00F2FA38 /* Info.plist */,
 			);
 			path = FcmExample;
@@ -74,6 +79,15 @@
 				B3A5B8CC1D3EE6DC00F2FA38 /* LaunchScreen.storyboard */,
 			);
 			name = res;
+			sourceTree = "<group>";
+		};
+		B3A5B8DA1D3EEFD500F2FA38 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B3A5B8C11D3EE6DC00F2FA38 /* AppDelegate.swift */,
+				B3A5B8DB1D3EF00600F2FA38 /* MainViewController.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 		BD325337B9B2EA12EFCE16B2 /* Pods */ = {
@@ -164,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A5B8CE1D3EE6DC00F2FA38 /* LaunchScreen.storyboard in Resources */,
+				B3A5B8DD1D3EF9DF00F2FA38 /* GoogleService-Info.plist in Resources */,
 				B3A5B8CB1D3EE6DC00F2FA38 /* Assets.xcassets in Resources */,
 				B3A5B8C91D3EE6DC00F2FA38 /* Main.storyboard in Resources */,
 			);
@@ -225,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A5B8C21D3EE6DC00F2FA38 /* AppDelegate.swift in Sources */,
+				B3A5B8DC1D3EF00600F2FA38 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

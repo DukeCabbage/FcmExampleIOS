@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1091763848366-l70vn746lde1e62776uen4qp55k4u9hu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1091763848366-l70vn746lde1e62776uen4qp55k4u9hu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB7WJql2x58owpiILxHYr95FPyltUeF3y8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1091763848366</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.digital-dispatch.FcmExample</string>
+	<key>PROJECT_ID</key>
+	<string>project-nephele</string>
+	<key>STORAGE_BUCKET</key>
+	<string>project-nephele.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1091763848366:ios:1f6f23cb7a259b64</string>
+	<key>DATABASE_URL</key>
+	<string>https://project-nephele.firebaseio.com</string>
+</dict>
+</plist>
