@@ -15,16 +15,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        registerForPushNotifications(application)
-        // Override point for customization after application launch.
-        // Use Firebase library to configure APIs
+        
         FIRApp.configure()
+        
+        registerForPushNotifications(application)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onTokenRefresh), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
         
+        if let notification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [String: AnyObject] {
+            handleNotificationPayload(notification)
+        }
         return true
     }
     
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        // Let FCM know about the message for analytics etc.
+        FIRMessaging.messaging().appDidReceiveMessage(userInfo)
+        // handle your message
+        handleNotificationInBackground(userInfo)
+//        if application.applicationState == .Background {
+//            completionHandler(.NoData)
+//        } else {
+            handleNotificationPayload(userInfo)
+            completionHandler(.NewData)
+//        }
+    }
+    
+        // MARK: Helper
+    func onTokenRefresh() {
+        if let token = FIRInstanceID.instanceID().token() {
+            print("onTokenRefresh: " + token)
+        } else {
+            print("token is nil")
+        }
+    }
+    
+    func handleNotificationInBackground(payload: [NSObject : AnyObject]) -> Void {
+        print(payload)
+        print("***Background work***")
+    }
+    
+    func handleNotificationPayload(payload: [NSObject : AnyObject]) -> Void {
+        if let aps = payload["aps"] as? [String : AnyObject],
+            let alert = aps["alert"] as? [String : AnyObject] {
+            print("***Updating ui***")
+            
+            let title = alert["title"] as? String
+            let body = alert["body"] as?  String
+            
+            let alertController = UIAlertController(title: title ?? "A title", message: body ?? "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+}
+
+// MARK: Notification registration
+extension AppDelegate {
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
             forTypes: [.Badge, .Sound, .Alert], categories: nil)
@@ -36,8 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotifications()
         }
     }
-    
-    // MARK: Remote notification
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
@@ -56,20 +102,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print(error.localizedDescription)
     }
-    
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        // Print full message.
-        print(userInfo)
-    }
-    
-    func onTokenRefresh() {
-        if let token = FIRInstanceID.instanceID().token() {
-            print("onTokenRefresh: " + token)
-        } else {
-            print("token is nil")
-        }
-    }
-    
-
 }
 
